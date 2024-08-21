@@ -9,10 +9,6 @@ networks.
 
 import sys
 
-try:
-    from sherlock_project.__init__ import import_error_test_var # noqa: F401
-except:
-    print("")
 import csv
 import signal
 import pandas as pd
@@ -28,6 +24,7 @@ from requests_futures.sessions import FuturesSession
 __longname__ = "Sherlock: Find Usernames Across Social Networks"
 __shortname__ = "Sherlock"
 __version__ = "0.15.0"
+import_error_test_var = None
 
 from sherlock_project.result import QueryStatus
 from sherlock_project.result import QueryResult
