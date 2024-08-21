@@ -1082,12 +1082,6 @@
     "urlMain": "https://hudsonrock.com",
     "username_claimed": "testadmin"
   },
-  "ICQ": {
-    "errorType": "status_code",
-    "url": "https://icq.im/{}/en",
-    "urlMain": "https://icq.com/",
-    "username_claimed": "Micheal"
-  },
   "IFTTT": {
     "errorType": "status_code",
     "regexCheck": "^[A-Za-z0-9]{3,35}$",
@@ -2789,5 +2783,13 @@
     "url": "https://www.znanylekarz.pl/{}",
     "urlMain": "https://znanylekarz.pl",
     "username_claimed": "janusz-nowak"
+  },
+  "OnlyFans": {
+    "errorType": "status_code",
+    "isNSFW": true,
+    "url": "https://onlyfans.com/{}",
+    "urlMain": "https://onlyfans.com/",
+    "urlProbe": "https://onlyfans.com/api2/v2/users/{}",
+    "username_claimed": "theemilylynne"
   }
 }
