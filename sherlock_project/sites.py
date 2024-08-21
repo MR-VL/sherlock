@@ -67,7 +67,7 @@ class SiteInformation:
         Return Value:
         Nicely formatted string to get information about this object.
         """
-        
+
         return f"{self.name} ({self.url_home})"
 
 
@@ -110,7 +110,7 @@ class SitesInformation:
             # The default data file is the live data.json which is in the GitHub repo. The reason why we are using
             # this instead of the local one is so that the user has the most up-to-date data. This prevents
             # users from creating issue about false positives which has already been fixed or having outdated data
-            data_file_path = "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock_project/resources/data.json"
+            data_file_path = "https://raw.githubusercontent.com/MR-VL/sherlock/main/sherlock_project/resources/data.json"
 
         # Ensure that specified data file has correct extension.
         if not data_file_path.lower().endswith(".json"):
@@ -152,7 +152,7 @@ class SitesInformation:
                 raise FileNotFoundError(f"Problem while attempting to access "
                                         f"data file '{data_file_path}'."
                                         )
-        
+
         site_data.pop('$schema', None)
 
         self.sites = {}
@@ -194,7 +194,7 @@ class SitesInformation:
         for site in self.sites:
             if self.sites[site].is_nsfw and site.casefold() not in do_not_remove:
                 continue
-            sites[site] = self.sites[site]  
+            sites[site] = self.sites[site]
         self.sites =  sites
 
     def site_name_list(self):
