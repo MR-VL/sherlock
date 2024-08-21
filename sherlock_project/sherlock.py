@@ -8,14 +8,12 @@ networks.
 """
 
 import sys
-
 import csv
 import signal
 import pandas as pd
 import os
 import re
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
-from json import loads as json_loads
 from time import monotonic
 
 import requests
@@ -24,7 +22,6 @@ from requests_futures.sessions import FuturesSession
 __longname__ = "Sherlock: Find Usernames Across Social Networks"
 __shortname__ = "Sherlock"
 __version__ = "0.15.0"
-import_error_test_var = None
 
 from result import QueryStatus
 from result import QueryResult
@@ -700,12 +697,7 @@ def main():
         help="Force the use of the local data.json file.",
     )
 
-    parser.add_argument(
-        "--nsfw",
-        action="store_true",
-        default=False,
-        help="Include checking of NSFW sites from default list.",
-    )
+
 
     args = parser.parse_args()
 
@@ -759,8 +751,6 @@ def main():
         print(f"ERROR:  {error}")
         sys.exit(1)
 
-    if not args.nsfw:
-        sites.remove_nsfw_sites(do_not_remove=args.site_list)
 
     # Create original dictionary from SitesInformation() object.
     # Eventually, the rest of the code will be updated to use the new object
