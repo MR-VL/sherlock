@@ -11,11 +11,8 @@ import sys
 
 try:
     from sherlock_project.__init__ import import_error_test_var # noqa: F401
-except ImportError:
-    print("Did you run Sherlock with `python3 sherlock/sherlock.py ...`?")
-    print("This is an outdated method. Please see https://sherlockproject.xyz/installation for up to date instructions.")
-    sys.exit(1)
-
+except:
+    print("")
 import csv
 import signal
 import pandas as pd
@@ -28,12 +25,9 @@ from time import monotonic
 import requests
 from requests_futures.sessions import FuturesSession
 
-from sherlock_project.__init__ import (
-    __longname__,
-    __shortname__,
-    __version__,
-    forge_api_latest_release,
-)
+__longname__ = "Sherlock: Find Usernames Across Social Networks"
+__shortname__ = "Sherlock"
+__version__ = "0.15.0"
 
 from sherlock_project.result import QueryStatus
 from sherlock_project.result import QueryResult
@@ -474,7 +468,7 @@ def sherlock(
             raise ValueError(
                 f"Unknown Error Type '{error_type}' for " f"site '{social_network}'"
             )
-        
+
         if dump_response:
             print("+++++++++++++++++++++")
             print(f"TARGET NAME   : {social_network}")
@@ -721,20 +715,7 @@ def main():
     # If the user presses CTRL-C, exit gracefully without throwing errors
     signal.signal(signal.SIGINT, handler)
 
-    # Check for newer version of Sherlock. If it exists, let the user know about it
-    try:
-        latest_release_raw = requests.get(forge_api_latest_release).text
-        latest_release_json = json_loads(latest_release_raw)
-        latest_remote_tag = latest_release_json["tag_name"]
 
-        if latest_remote_tag[1:] != __version__:
-            print(
-                f"Update available! {__version__} --> {latest_remote_tag[1:]}"
-                f"\n{latest_release_json['html_url']}"
-            )
-
-    except Exception as error:
-        print(f"A problem occurred while checking for an update: {error}")
 
     # Argument check
     # TODO regex check on args.proxy
