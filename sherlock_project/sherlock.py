@@ -26,11 +26,11 @@ __shortname__ = "Sherlock"
 __version__ = "0.15.0"
 import_error_test_var = None
 
-from sherlock_project.result import QueryStatus
-from sherlock_project.result import QueryResult
-from sherlock_project.notify import QueryNotify
-from sherlock_project.notify import QueryNotifyPrint
-from sherlock_project.sites import SitesInformation
+from result import QueryStatus
+from result import QueryResult
+from notify import QueryNotify
+from notify import QueryNotifyPrint
+from sites import SitesInformation
 from colorama import init
 from argparse import ArgumentTypeError
 
