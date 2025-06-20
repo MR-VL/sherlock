@@ -6,7 +6,14 @@ jsonURL = "https://raw.githubusercontent.com/MR-VL/sherlock2/master/sherlock_pro
 
 
 def fetch_json(url):
-    print("hello")
+    try:
+        response = requests.get(url, timeout = 10)
+        response.raise_for_status()
+        return response.json()
+
+    except requests.RequestException as e:
+        print(f"Error fetching JSON: {e}")
+        return None
 
 def check_site_status(url):
     print("hello")
