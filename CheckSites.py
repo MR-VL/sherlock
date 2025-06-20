@@ -16,7 +16,18 @@ def fetch_json(url):
         return None
 
 def check_site_status(url):
-    print("hello")
+    try:
+        response = requests.head(url, allow_redirects=True, timeout = 5)
+        status_code = response.status_code
+        #some sites do not support HEAD, use GET instead as last resort
+        if status_code >= 400 or status_code == 405:
+            response = requests.get(url, allow_redirects=True, timeout = 5)
+            status_code = response.status_code
+
+        is_active = 200 <= status_code < 400
+        return is_active, status_code
+    except requests.RequestException:
+        return False, None
 
 if __name__ == "__main__":
     site_data = fetch_json(jsonURL)
