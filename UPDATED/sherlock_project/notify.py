@@ -3,7 +3,7 @@
 This module defines the objects for notifying the caller about the
 results of queries.
 """
-from sherlock_project.result import QueryStatus
+from result import QueryStatus
 from colorama import Fore, Style
 import webbrowser
 
@@ -238,7 +238,7 @@ class QueryNotifyPrint(QueryNotify):
                       Fore.WHITE + "]" +
                       Fore.GREEN + f" {self.result.site_name}:" +
                       Fore.YELLOW + f" {msg}")
-                
+
         elif result.status == QueryStatus.WAF:
             if self.print_all:
                 print(Style.BRIGHT + Fore.WHITE + "[" +
