@@ -693,7 +693,7 @@ def main():
         "--local",
         "-l",
         action="store_true",
-        default=False,
+        default=True,
         help="Force the use of the local data.json file.",
     )
 
