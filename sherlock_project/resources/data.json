@@ -2,20 +2,12 @@
   "$schema": "data.schema.json",
 
 
-    "gpodder.net": {
-    "errorType": "status_code",
-    "rank": 2013984,
-    "url": "https://gpodder.net/user/{}",
-    "urlMain": "https://gpodder.net/",
-    "username_claimed": "blue",
-    "username_unclaimed": "noonewouldeverusethis7"
-  },
+    "Pychess": {
+  "errorType": "message",
+  "errorMsg": "404",
+  "url": "https://www.pychess.org/@/{}",
+  "urlMain": "https://www.pychess.org",
+  "username_claimed": "gbtami"
+}
 
-    "Instagram": {
-    "errorType": "status_code",
-    "url": "https://instagram.com/{}",
-    "urlMain": "https://instagram.com/",
-    "urlProbe": "https://imginn.com/{}",
-    "username_claimed": "instagram"
-  }
 }
